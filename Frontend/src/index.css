@@ -1,0 +1,17 @@
+@import "tailwindcss";
+/* Add in index.css or global.css */
+.glass {
+  @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+}
+
+.btn-primary {
+  @apply px-5 py-2 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold shadow-lg transition;
+}
+
+.btn-outline {
+  @apply px-5 py-2 bg-white/10 border border-white/30 hover:bg-white/20 rounded-xl transition;
+}
+
+.input {
+  @apply w-full p-3 bg-black/20 border border-white/20 rounded-xl text-white placeholder-gray-300;
+}
