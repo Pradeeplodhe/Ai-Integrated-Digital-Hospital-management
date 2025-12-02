@@ -1,79 +1,82 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { registerUser } from "../redux/slices/authSlice";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Signup = () => {
-  const dispatch = useDispatch();
+export function Signup() {
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "patient",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(registerUser(form)); // Register → Redux
+    e.preventDefault();  // stop page refresh
+
+    console.log({
+      name,
+      mail,
+      password,
+      role,
+    });
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form onSubmit={handleSubmit} className="p-6 shadow-md rounded-md w-96">
-        <h2 className="text-xl font-bold mb-4">Signup</h2>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center mb-6 text-green-600">Signup</h2>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Name"
-          className="border w-full p-2 mb-3"
-          onChange={handleChange}
-          required
-        />
+        <form className="space-y-4" onSubmit={handleSubmit}>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          className="border w-full p-2 mb-3"
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          className="border w-full p-2 mb-3"
-          onChange={handleChange}
-          required
-        />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+          />
 
-        {/* ROLE SE DECIDE HOGA PATIENT/DOCTOR/HOSPITAL */}
-        <select
-          name="role"
-          className="border w-full p-2 mb-3"
-          onChange={handleChange}
-        >
-          <option value="patient">Patient</option>
-          <option value="doctor">Doctor</option>
-          <option value="hospital">Hospital Admin</option>
-          <option value="explorer">Free Explorer</option>
-        </select>
+          <input
+            type="password"
+            placeholder="Create Password"
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <button
-          type="submit"
-          className="bg-green-600 text-white w-full py-2 rounded"
-        >
-          Signup
-        </button>
-      </form>
+          <label className="font-semibold text-gray-700">Select Role:</label>
+          <select
+            className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          >
+            <option>Select</option>
+            <option>Patient</option>
+            <option>Doctor</option>
+            <option>Hospital Admin</option>
+            <option>Free Explorer</option>
+          </select>
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700"
+          >
+            Create Account
+          </button>
+
+        </form>
+
+        <p className="text-center mt-4 text-sm">
+          Already have an account?
+          <Link to="/login" className="text-green-600 font-semibold ml-1">Login</Link>
+        </p>
+      </div>
     </div>
   );
-};
-
-export default Signup;
+}
