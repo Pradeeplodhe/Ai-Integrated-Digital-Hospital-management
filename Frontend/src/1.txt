@@ -4,33 +4,37 @@ hospital-system/
 │   └─ index.html
 │
 ├─ src/
-│   ├─ auth/                       # Common login/signup
+│   ├─ auth/
 │   │   ├─ Login.jsx
 │   │   ├─ Signup.jsx
-│   │   └─ authService.js          # Login, logout, role fetch
+│   │   ├─ authService.js
+│   │   └─ ProtectedRoute.jsx        # NEW (Essential)
 │   │
-│   ├─ core/                        # Global logic, reusable
-│   │   ├─ hooks/                   # Custom React hooks
+│   ├─ core/
+│   │   ├─ hooks/
 │   │   │   ├─ useAuth.js
 │   │   │   ├─ useFetch.js
 │   │   │   └─ useForm.js
-│   │   ├─ context/                 # Global contexts
+│   │   │
+│   │   ├─ context/
 │   │   │   ├─ AuthContext.js
 │   │   │   ├─ ThemeContext.js
 │   │   │   └─ NotificationContext.js
-│   │   ├─ utils/                   # Helper functions
+│   │   │
+│   │   ├─ utils/
 │   │   │   ├─ formatDate.js
 │   │   │   ├─ validateEmail.js
 │   │   │   └─ calculateAge.js
-│   │   └─ services/                # API calls
+│   │   │
+│   │   └─ services/
 │   │       ├─ api.js
-│   │       ├─ authService.js
 │   │       ├─ patientService.js
 │   │       ├─ doctorService.js
-│   │       └─ hospitalService.js
+│   │       ├─ hospitalService.js
+│   │       └─ explorerService.js      # NEW (Essential)
 │   │
-│   ├─ redux/                        # Redux setup
-│   │   ├─ store.js                  # Configure store
+│   ├─ redux/
+│   │   ├─ store.js
 │   │   ├─ slices/
 │   │   │   ├─ authSlice.js
 │   │   │   ├─ patientSlice.js
@@ -39,26 +43,23 @@ hospital-system/
 │   │   │   └─ explorerSlice.js
 │   │   └─ selectors.js
 │   │
-│   ├─ modules/                     # 4 independent modules
+│   ├─ modules/
 │   │   ├─ patient/
 │   │   │   ├─ pages/
 │   │   │   │   ├─ Dashboard.jsx
-│   │   │   │   ├─ Profile.jsx
 │   │   │   │   ├─ Appointments.jsx
-│   │   │   │   ├─ MedicalRecords.jsx
-│   │   │   │   ├─ LabReports.jsx
-│   │   │   │   ├─ Billing.jsx
-│   │   │   │   └─ Settings.jsx
-│   │   │   ├─ components/          # Optional: Navbar, Sidebar
+│   │   │   │   └─ MedicalRecords.jsx
+│   │   │   ├─ components/
+│   │   │   │   └─ PatientNavbar.jsx   # NEW (Essential)
 │   │   │   └─ PatientApp.jsx
 │   │   │
 │   │   ├─ doctor/
 │   │   │   ├─ pages/
 │   │   │   │   ├─ Dashboard.jsx
-│   │   │   │   ├─ Profile.jsx
 │   │   │   │   ├─ Appointments.jsx
 │   │   │   │   └─ PatientList.jsx
 │   │   │   ├─ components/
+│   │   │   │   └─ DoctorNavbar.jsx    # NEW (Essential)
 │   │   │   └─ DoctorApp.jsx
 │   │   │
 │   │   ├─ hospital/
@@ -66,22 +67,22 @@ hospital-system/
 │   │   │   │   ├─ Dashboard.jsx
 │   │   │   │   ├─ Patients.jsx
 │   │   │   │   ├─ Doctors.jsx
-│   │   │   │   ├─ Billing.jsx
 │   │   │   │   └─ Inventory.jsx
 │   │   │   ├─ components/
+│   │   │   │   └─ HospitalNavbar.jsx  # NEW (Essential)
 │   │   │   └─ HospitalApp.jsx
 │   │   │
 │   │   └─ explorer/
 │   │       ├─ pages/
 │   │       │   ├─ Dashboard.jsx
 │   │       │   ├─ Doctors.jsx
-│   │       │   ├─ LabTests.jsx
-│   │       │   └─ Feedback.jsx
+│   │       │   └─ LabTests.jsx
 │   │       ├─ components/
+│   │       │   └─ ExplorerNavbar.jsx  # NEW (Essential)
 │   │       └─ ExplorerApp.jsx
 │   │
-│   ├─ App.jsx                       # Conditional rendering based on role
-│   └─ index.jsx                     # Wrap <App /> with <Provider store={store}>
+│   ├─ App.jsx
+│   └─ index.jsx
 │
 ├─ package.json
 ├─ tailwind.config.js
