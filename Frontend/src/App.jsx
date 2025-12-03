@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from './auth/Login';
 import { Signup } from './auth/Signup';
 import PatientApp from './modules/patient/PatientApp';
+import DoctorApp from './modules/doctor/DoctorApp';
 function App() {
  
   return (
@@ -22,7 +23,7 @@ function App() {
 
 
 
-        <Route path="/doctor/*" element={<Signup />} />
+        <Route path="/doctor/*" element={< DoctorApp/>} />
 
         <Route path="/hospital/*" element={<Signup />} />
 
