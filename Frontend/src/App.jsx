@@ -9,16 +9,30 @@ function App() {
  
   return (
  <>
-  {/* <BrowserRouter>
+   <BrowserRouter>
       <Routes>
          <Route path="/" element={<Login />} />
       
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/patient/*" element={<PatientApp/>} />
+          
+             
+
+
+
+        <Route path="/doctor/*" element={<Signup />} />
+
+        <Route path="/hospital/*" element={<Signup />} />
+
+        <Route path="/explorer/*" element={<Signup />} />
+
+        
       </Routes>
-    </BrowserRouter> */}
-  
-<PatientApp/>
+    </BrowserRouter> 
+ 
+
 
  </>
   )
